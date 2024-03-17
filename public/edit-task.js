@@ -10,10 +10,9 @@ let tempName
 
 const showTask = async () => {
   try {
-    const {
-      data: { task },
-    } = await axios.get(`/api/v1/tasks/${id}`)
-    const { _id: taskID, completed, name } = task
+    const response = await axios.get(`/api/v1/tasks/${id}`)
+    console.log(response.data)
+    const { _id: taskID, completed, name } = response.data
 
     taskIDDOM.textContent = taskID
     taskNameDOM.value = name
